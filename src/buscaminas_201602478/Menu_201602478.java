@@ -1,12 +1,13 @@
 package buscaminas_201602478;
 import java.util.Scanner;
 
-        /**
+/**
  *
  * @author Eduardo
  */
-public class Menu {
-    public void menuprincipal(){
+public class Menu_201602478 {
+    
+        public void menuprincipal(){
         int opcion;
         Scanner in = new Scanner(System.in);
         
@@ -39,7 +40,7 @@ public class Menu {
             }
         
     
-    }  
+    }
     
     
 }

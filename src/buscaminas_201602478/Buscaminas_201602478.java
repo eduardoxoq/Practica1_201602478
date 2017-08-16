@@ -8,13 +8,11 @@ import java.util.Scanner;
  */
 public class Buscaminas_201602478 {
 
-    /**
-     * @param args the command line arguments
-     */
+    
     public static void main(String[] args) {
         String opcion1;
         Scanner sn = new Scanner(System.in);
-        Menu objeto = new Menu();
+        Menu_201602478 objeto = new Menu_201602478();
         
         //inicio
         System.out.println("             Eduardo Francisco Xoquic Poz                  ");
