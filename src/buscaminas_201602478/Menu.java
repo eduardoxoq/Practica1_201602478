@@ -1,4 +1,3 @@
-
 package buscaminas_201602478;
 import java.util.Scanner;
 
@@ -21,6 +20,24 @@ public class Menu {
         //System.out.println("");
         System.out.println("Ingrese opcion");
         opcion = in.nextInt();
+        
+        switch(opcion){
+
+                case 1:  
+                    System.out.println("hola");
+                    break;
+                case 2:  
+                    break;
+                case 3:  
+                    break;    
+                
+                 case 4:
+                     break;
+                  
+                /*default:
+                   System.out.println("Elije una opcion de 1 al 5");     */          
+            }
+        
     
     }  
     
