@@ -16,7 +16,7 @@ public class Buscaminas_201602478 {
         Scanner sn = new Scanner(System.in);
         Menu objeto = new Menu();
         
-        
+        //inicio
         System.out.println("             Eduardo Francisco Xoquic Poz                  ");
         System.out.println("                    201602478                              ");
         System.out.println("                 IPC A Practica 1                          ");
