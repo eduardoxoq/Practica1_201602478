@@ -1,17 +1,20 @@
 package buscaminas_201602478;
 import java.util.Scanner;
 
+
 /**
  *
  * @author Eduardo
  */
 public class Menu_201602478 {
+    boolean salir = false;
     
         public void menuprincipal(){
         int opcion;
+        String op;
         Matriz_201602478 print = new Matriz_201602478();
         Scanner in = new Scanner(System.in);
-        boolean salir = false;
+        
         
         do{
         System.out.println("");    
@@ -29,13 +32,15 @@ public class Menu_201602478 {
         switch(opcion){
 
                 case 1:  
-                    print.principiantem();
+                    
+                    print.menup();
+
                     break;
                 case 2:  
-                    print.intermedio();
+                    //print.intermedio();
                     break;
                 case 3:  
-                    print.avanzado();
+                    //print.avanzado();
                     break;    
                 
                  case 4:
@@ -43,8 +48,8 @@ public class Menu_201602478 {
                      System.out.println("salio del Programa");
                      break;
                   
-                /*default:
-                   System.out.println("Elije una opcion de 1 al 5");     */          
+                default:
+                   System.out.println("Elije una opcion de 1 al 4");              
             }
         }while(opcion!=4);
         
