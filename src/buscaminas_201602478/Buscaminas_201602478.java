@@ -19,15 +19,14 @@ public class Buscaminas_201602478 {
         System.out.println("                    201602478                              ");
         System.out.println("                 IPC A Practica 1                          ");
         System.out.println("                 ¡¡¡BUSCAMINAS!!!                          ");
-        
+        System.out.println("Precione enter  ");
         opcion1 = sn.nextLine();
        
        if(opcion1.equals("")){
          objeto.menuprincipal();
            
     }
-        
-       
+  
     }
     
 }

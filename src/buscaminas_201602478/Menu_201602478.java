@@ -17,7 +17,7 @@ public class Menu_201602478 {
         
         //menu de niveles de juego
         do{
-        System.out.println("");    
+        //System.out.println("");    
         System.out.println("...................................................");
         System.out.println("                  ¡BUSCAMINAS!");
         System.out.println("                1.Principiante");
@@ -33,14 +33,14 @@ public class Menu_201602478 {
 
                 case 1:  
                     
-                    print.menup();
+                    print.menuP();
 
                     break;
                 case 2:  
-                   //print.menui();
+                   print.menuI();
                     break;
                 case 3:  
-                    //print.avanzado();
+                    print.menuA();
                     break;    
                 
                  case 4:

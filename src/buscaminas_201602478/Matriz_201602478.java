@@ -30,13 +30,11 @@ public class Matriz_201602478 {
              System.out.println();
             for (int j = 0; j<columna; j++) {
                matrices[i][j]= "x";
-               System.out.printf("  [%s]  ",matrices[i][j]);
+               System.out.printf("[" + matrices[i][j] + "]");
             }     
-        }    
+        }   
     }
         
-    
-
     public void minasale(){
         min= 0;
         
@@ -48,17 +46,11 @@ public class Matriz_201602478 {
             vuelta[FFila][CColumna]=-50;
             minas=minas-1;
         } 
-                min ++;
-           
-           
+                min ++;  
         }while(min < minas);
-        imprimir();
-    
-        
+        imprimir();   
     }
-    
-
-    
+     
     public void imprimir(){
         for(int i = 0; i <= fila; i++){
             for(int j=0; j<columna; j++){
@@ -66,10 +58,57 @@ public class Matriz_201602478 {
                    matrices[i][j] = "*";
                }
             }
-            
             camino();
     }
-    }    
+    }  
+    public void imprimirxxx(){
+        
+           fila =4;
+        columna=4;
+        minas = 4;
+        matrices = new String [fila][columna];
+        vuelta = new int [fila][columna];
+
+        for ( int i = 0; i<fila; i++) {            
+            for (int j = 0; j<columna; j++) {
+               matrices[i][j]= "0";
+            }     
+        }
+        for ( int i = 0; i<fila; i++) {
+            //System.out.println();
+            for (int j = 0; j<columna; j++) {
+               //vuelta[i][j]= 'x';
+               //System.out.printf("[ x ]",vuelta[i][j]);
+            }     
+        }
+        
+        System.out.println("");
+        
+        min= 0;
+        
+        do{
+            random = new Random();
+            FFila= random.nextInt(fila);
+            CColumna= random.nextInt(columna);
+            if(" * ".equals(matrices[FFila][CColumna]) ){
+            } else {    
+                matrices[FFila][CColumna] = "*";
+                min ++;
+            }
+           
+        }while(min < minas);
+        
+  
+        for(int i = 1; i <= fila; i++){
+            if (i < 10){
+                System.out.print(i + " ");
+            }
+            for(int j=0; j<columna; j++){
+                System.out.print("[" + matrices[i-1][j] + "]");
+            }
+            System.out.print("\n");
+            } 
+    }
     public void xusuariox(){
         
          for(int i=0;i<fila;i++){
@@ -80,7 +119,7 @@ public class Matriz_201602478 {
         for(int i=0;i<fila;i++){
             System.out.println();
             for(int j=0;j<columna;j++){
-                System.out.printf("  [%s]  ",matrices[i][j]); //matriz string para pruebas.
+                System.out.printf("[ " +  matrices[i][j] + " ]" );
             }
         }
         voltear();
@@ -90,7 +129,7 @@ public class Matriz_201602478 {
         for(int i=0;i<fila;i++){
             System.out.println();
             for(int j=0;j<columna;j++){
-                System.out.printf("  [%s]  ",matrices[i][j]); //matriz string para pruebas.
+                System.out.printf("[ " + matrices[i][j] + "]"); 
             }
         }
        voltear();
@@ -98,8 +137,8 @@ public class Matriz_201602478 {
     
     public void camino(){
     
-        for(int i=1;i<fila-1;i++){
-            for(int j=1;j<columna-1;j++){
+        for(int i=0;i<fila;i++){
+            for(int j=0;j<columna;j++){
                 if(vuelta[i][j]<0){
                     vuelta[i-1][j]+=1;
                     vuelta[i+1][j]+=1;
@@ -112,12 +151,9 @@ public class Matriz_201602478 {
                 }
             }
         }
-        //desde ac actrolz
-
-        xusuariox();
-        
+        xusuariox(); 
     }
-    public void menup(){
+    public void menuP(){
         System.out.println("-----------------------------------");
         System.out.println("NIVEL PRINCIPIANTE");
         principiantem();
@@ -136,13 +172,14 @@ public class Matriz_201602478 {
                 case "v":  
                     
                     voltear();
+                    minasale();
                     
                     break;
                 case "r": 
                     System.out.println("Desea Reiniciar el Juego presione y o n");
                     String reiniciar = sc.nextLine();
                     if(reiniciar.equals("y")){
-                       menup();
+                       menuP();
                     }else if(reiniciar.equals("n")){
                        return; 
                     }else{
@@ -155,8 +192,8 @@ public class Matriz_201602478 {
                     
                 case "s":  
                      return;
-                case "sol":  
-                     //imprimir(); 
+                case "solucion":  
+                     imprimirxxx(); 
                      System.out.println("Esta es la solucion");
                 default:
                    System.out.println("Elije una opcion v,r,s"); 
@@ -169,7 +206,7 @@ public class Matriz_201602478 {
           Scanner st = new Scanner(System.in);
           Scanner sc = new Scanner(System.in);
           int f,c;
-           System.out.println("");
+          System.out.println("");
           System.out.println("Ingrese  fila , columna");
           System.out.println("Ejemplo 1,1");
         
@@ -178,17 +215,17 @@ public class Matriz_201602478 {
        
           if (posicion.length != 2) {
             System.out.println("Ingrese coordenadas validas");
-            menup();
+            menuP();
         } 
          f=Integer.parseInt(posicion[0]);
-         if(f>fila-2 || f<=0){
+         if(f>fila || f<=0){
             System.out.println("Ingrese coordenadas validas");
-            menup();
+            menuP();
         }
          c=Integer.parseInt(posicion[1]);
-             if(c>columna-2 || c<=0){
+             if(c>columna || c<=0){
              System.out.println("Ingrese coordenadas validas");
-            menup();   
+            menuP();   
         }
         System.out.println("¿Esta seguro de sus coordenadas?");
         System.out.println("Si: y     No:  n");
@@ -198,13 +235,13 @@ public class Matriz_201602478 {
            
             verificador(f,c);
         }else if(seguro.equalsIgnoreCase("n")){
-         menup();  
+         menuP();  
         }else {System.out.println("Opcion no valida");
         System.out.println();    
         voltear();
         }    
               
-            }
+    }
        
     
       public void mostrarusuario(boolean a, int bfila,int bcolumna){
@@ -239,21 +276,19 @@ public class Matriz_201602478 {
         k=vuelta[bfila][bcolumna+1];
         matrices[bfila][bcolumna+1]=Integer.toString(k);
             
+        }       
         }
-        
-        
-        }//if false
             for(int i=0;i<fila;i++){
                    System.out.println();
                    for(int j=0;j<columna;j++){
-                       System.out.printf("  [%s]  ",matrices[i][j]); //matriz string para pruebas.
-                       //System.out.printf("  [%d]  ",matrizcontrol[i][j]);
-                   }//forj
-               }//fori
+                       System.out.printf("[" + matrices[i][j] + "]");                  
+                   }
+               }
             
             if(vuelta[bfila][bcolumna]<0){
-                System.out.printf("%n%s%n%s%n","           Perdiste","          GAME OVER");
-                System.out.println("        Solucion:");
+                System.out.println(" ");
+                System.out.printf("    :V Perdiste  :V","   :V GAME OVER :V ");
+                System.out.println(" Solucion:");
                 //solucion();
                 //Aca metodo para imprimir solucion
             }else{
@@ -279,8 +314,8 @@ public class Matriz_201602478 {
       public void ganar(){
         champ=false;
         
-          for(int i=1;i<fila-1;i++){
-            for(int j=1;j<columna-1;j++){
+          for(int i=0;i<fila;i++){
+            for(int j=0;j<columna;j++){
                 
                 if(vuelta[i][j]>=0){
                   if(!(matrices[i][j].equalsIgnoreCase(Integer.toString(vuelta[i][j])))){
@@ -291,51 +326,32 @@ public class Matriz_201602478 {
         }
           
         if(champ==false){
-            System.out.println("    FELICIDADES\n   GANASTE\n");
-            principiantem();//debe estar reiniciar juego 
+            System.out.println("    FELICIDADES  GANASTE");
+            imprimirxxx();//debe estar reiniciar juego 
         }else{
             
         voltear();
         
         }
     }
- }
-
-
-      
-      
-            
+ 
+public void intermediom(){
         
-      
-      
-      
-     /*
-      public void intermediom(){
-       
-        fila =6;
+        fila=6;
         columna=6;
-        minas = 8;
+        min=8;
         matrices = new String [fila][columna];
         vuelta = new int [fila][columna];
 
-        for ( int i = 0; i<fila; i++) {            
+        for ( int i = 0; i<fila; i++) { 
+             System.out.println();
             for (int j = 0; j<columna; j++) {
-               matrices[i][j]= " X ";
+               matrices[i][j]= "x";
+               System.out.printf("[" + matrices[i][j] + "]");
             }     
-        }
-        for ( int i = 0; i<fila; i++) {
-            System.out.println();
-            for (int j = 0; j<columna; j++) {
-               //vuelta[i][j]= 'x';
-               System.out.printf("[x]",vuelta[i][j]);
-            }     
-        }
-        minasale();
-        System.out.println("");
-        //imprimir ();
-
+        }   
     }
-      public void menui(){
+    public void menuI(){
         System.out.println("-----------------------------------");
         System.out.println("NIVEL PRINCIPIANTE");
         intermediom();
@@ -354,13 +370,14 @@ public class Matriz_201602478 {
                 case "v":  
                     
                     voltear();
-                    imprimir();
+                    minasale();
+                    
                     break;
                 case "r": 
                     System.out.println("Desea Reiniciar el Juego presione y o n");
                     String reiniciar = sc.nextLine();
                     if(reiniciar.equals("y")){
-                       menup();
+                       menuI();
                     }else if(reiniciar.equals("n")){
                        return; 
                     }else{
@@ -373,143 +390,183 @@ public class Matriz_201602478 {
                     
                 case "s":  
                      return;
+                case "solucion":  
+                     imprimirxXX(); 
+                     System.out.println("Esta es la solucion");
                 default:
                    System.out.println("Elije una opcion v,r,s"); 
                              
             }
         }
-     
-   /* public void avanzado(){
-        
-        for (int[] intermedio1 : avanzado) {
-            System.out.println();
-            for (int j = 0; j<avanzado.length; j++) {
-                System.out.printf("  [%s]  ", intermedio1[j]);
+     public void imprimirxXX(){
+        fila =6;
+        columna=6;
+        minas = 8;
+        matrices = new String [fila][columna];
+        vuelta = new int [fila][columna];
+
+        for ( int i = 0; i<fila; i++) {            
+            for (int j = 0; j<columna; j++) {
+               matrices[i][j]= "0";
             }     
         }
-    }*/       
-
-
-
-
-
-
-/*
-      public void impMatrizusuario(int ff,int cc,boolean a){
-        if(a==false){
-            
-        int k;
-        if(vuelta[ff][cc]>=0){
-            k=vuelta[ff][cc];
-            matrices[ff][cc]=Integer.toString(k);
-        }else{
-            matrices[ff][cc]="*";
-        }    
-        
-        if(vuelta[ff-1][cc]>=0 && vuelta[ff][cc]>=0){
-            k=vuelta[ff-1][cc];
-             matrices[ff-1][cc]=Integer.toString(k);
-            
+        for ( int i = 0; i<fila; i++) {
+            //System.out.println();
+            for (int j = 0; j<columna; j++) {
+               //vuelta[i][j]= 'x';
+               //System.out.printf("[ x ]",vuelta[i][j]);
+            }     
         }
         
-        if(vuelta[ff+1][cc]>=0 && vuelta[ff][cc]>=0){
-        k=vuelta[ff+1][cc];
-        matrices[ff+1][cc]=Integer.toString(k);
-       }
-       
-        if(vuelta[ff][cc-1]>=0 && vuelta[ff][cc]>=0){
-        k=vuelta[ff][cc-1];
-        matrices[ff][cc-1]=Integer.toString(k);
-            
-        }
+        System.out.println("");
         
-        if(vuelta[ff][cc+1]>=0 && vuelta[ff][cc]>=0){
-        k=vuelta[ff][cc+1];
-        matrices[ff][cc+1]=Integer.toString(k);
-            
-        }
+        min= 0;
         
+        do{
+            random = new Random();
+            FFila= random.nextInt(fila);
+            CColumna= random.nextInt(columna);
+            if(" * ".equals(matrices[FFila][CColumna]) ){
+            } else {    
+                matrices[FFila][CColumna] = "*";
+                min ++;
+            }
+           
+        }while(min < minas);
         
-        }
-            for(int i=1;i<fila-1;i++){
-                   System.out.println();
-                   for(int j=1;j<columna-1;j++){
-                       System.out.printf("  [%s]  ",matrices[i][j]); //matriz string para pruebas.
-                       //System.out.printf("  [%d]  ",matrizcontrol[i][j]);
-                   }
-               }
-            
-            if((matrices[ff][cc])<0){
-                System.out.printf("%n%s%n%s%n","           Perdiste","          GAME OVER");
-                System.out.println("    Solucion:\n");
-                imprimir();
-                //Aca metodo para imprimir solucion
-            }else{
-                System.out.println();
-            voltear();
+  
+        for(int i = 1; i <= fila; i++){
+            if (i < 10){
+                System.out.print(i + " ");
+            }
+            for(int j=0; j<columna; j++){
+                System.out.print("[" + matrices[i-1][j] + "]");
+            }
+            System.out.print("\n");
             }
             
     }
-      
-      public void verificador(int ff,int cc){
-        int k;
-        k=vuelta[ff][cc];
-        if(matrices[ff][cc].equals(Integer.toString(k))){
-                System.out.printf("%n%s%n","La casilla ya se muestra en pantalla,ingrese otra.");
-                impMatrizusuario(ff, cc,true);
-            }else{
-                    
-        impMatrizusuario(ff,cc,false);
-        }
-    }
-      
-      public void impMatriz(){
-   
-        for(int i=1;i<fila-1;i++){
-            System.out.println();
-            for(int j=1;j<columna-1;j++){
-                System.out.printf("  [%s]  ",matrices[i][j]); //matriz string para pruebas.
-                //System.out.printf("  [%d]  ",matrizcontrol[i][j]);
-            }//forj
-        }//fori
-        voltear();
-    }
-      public void igualarMatriz(){
-        
-        for(int i=1;i<fila-1;i++){
-            
-            for(int j=1;j<columna-1;j++){
-                
-            if(vuelta[i][j]<0){
-                matrices[i][j]="*";
-            }
-                
-            }//for j
-        
-        }//for i
-        minasAlrededor();
-    }
-      public void minasAlrededor(){
     
-        for(int i=1;i<fila-1;i++){
-            for(int j=1;j<columna-1;j++){
-                if(vuelta[i][j]<0){
-                    vuelta[i-1][j]+=1;
-                    vuelta[i+1][j]+=1;
-                    vuelta[i][j-1]+=1;
-                    vuelta[i][j+1]+=1;
-                    vuelta[i-1][j-1]+=1;
-                    vuelta[i-1][j+1]+=1;
-                    vuelta[i+1][j-1]+=1;
-                    vuelta[i+1][j+1]+=1;
+    public void avanzadom(){
+        
+        fila=8;
+        columna=8;
+        min=12;
+        matrices = new String [fila][columna];
+        vuelta = new int [fila][columna];
+
+        for ( int i = 0; i<fila; i++) { 
+             System.out.println();
+            for (int j = 0; j<columna; j++) {
+               matrices[i][j]= "x";
+               System.out.printf("[" + matrices[i][j] + "]");
+            }     
+        }   
+    }
+    
+    public void imprimirXXX(){
+        fila =8;
+        columna=8;
+        minas = 12;
+        matrices = new String [fila][columna];
+        vuelta = new int [fila][columna];
+
+        for ( int i = 0; i<fila; i++) {            
+            for (int j = 0; j<columna; j++) {
+               matrices[i][j]= "0";
+            }     
+        }
+        for ( int i = 0; i<fila; i++) {
+            //System.out.println();
+            for (int j = 0; j<columna; j++) {
+               //vuelta[i][j]= 'x';
+               //System.out.printf("[ x ]",vuelta[i][j]);
+            }     
+        }
+        
+        System.out.println("");
+        
+        min= 0;
+        
+        do{
+            random = new Random();
+            FFila= random.nextInt(fila);
+            CColumna= random.nextInt(columna);
+            if(" * ".equals(matrices[FFila][CColumna]) ){
+            } else {    
+                matrices[FFila][CColumna] = "*";
+                min ++;
+            }
+           
+        }while(min < minas);
+        
+  
+        for(int i = 1; i <= fila; i++){
+            if (i < 10){
+                System.out.print(i + " ");
+            }
+            for(int j=0; j<columna; j++){
+                System.out.print("[" + matrices[i-1][j] + "]");
+            }
+            System.out.print("\n");
+            }
+    }
+
+    
+    
+    public void menuA(){
+        System.out.println("-----------------------------------");
+        System.out.println("NIVEL PRINCIPIANTE");
+        avanzadom();
+        System.out.println("");
+        System.out.println("---------------------------------  ");
+        System.out.println("Voltear: v");
+        System.out.println("Reiniciar: r");
+        System.out.println("Salir: s");
+        System.out.println("----------------------------------");
+        
+        Scanner sc = new Scanner(System.in);
+        op = sc.nextLine();
+        
+        switch(op){
+
+                case "v":  
                     
-                }
+                    voltear();
+                    minasale();
+                    
+                    break;
+                case "r": 
+                    System.out.println("Desea Reiniciar el Juego presione y o n");
+                    String reiniciar = sc.nextLine();
+                    if(reiniciar.equals("y")){
+                       menuA();
+                    }else if(reiniciar.equals("n")){
+                       return; 
+                    }else{
+                        
+                        System.out.println("opcion invalida");
+                        return;
+                    }
+        
+                    break;
+                    
+                case "s":  
+                     return;
+                case "solucion":  
+                     imprimirXXX(); 
+                     System.out.println("Esta es la solucion");
+                default:
+                   System.out.println("Elije una opcion v,r,s"); 
+                             
             }
         }
-        //desde ac actrolz
-        
-        
-        principiantem();
-      
-      }
-      */
+
+
+
+
+
+
+
+}
+
