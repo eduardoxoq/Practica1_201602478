@@ -37,7 +37,7 @@ public class Menu_201602478 {
 
                     break;
                 case 2:  
-                    //print.intermedio();
+                   //print.menui();
                     break;
                 case 3:  
                     //print.avanzado();
